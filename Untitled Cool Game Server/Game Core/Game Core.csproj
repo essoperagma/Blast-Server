@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84C0EA0D-72A0-4D9B-9020-9DCB1961C817}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Game_Core</RootNamespace>
+    <AssemblyName>Game Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Networker">
+      <HintPath>lib\Networker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arena.cs" />
+    <Compile Include="Blocks\Block.cs" />
+    <Compile Include="Blocks\LavaBlock.cs" />
+    <Compile Include="Blocks\StoneBlock.cs" />
+    <Compile Include="Blocks\IBlock.cs" />
+    <Compile Include="Blocks\Land.cs" />
+    <Compile Include="LivingObject.cs" />
+    <Compile Include="Messages\IIncomingMessage.cs" />
+    <Compile Include="Messages\IncomingMessageImp.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_ExitGame.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_JoinQueue.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_LeaveQueue.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_LoadingDone.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_Login.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_PlayerWalkRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_SkillUnlockRequest.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_UseSkill.cs" />
+    <Compile Include="Messages\IncomingMessages\IM_ReadyForGame.cs" />
+    <Compile Include="Messages\IOutgoingMessage.cs" />
+    <Compile Include="Messages\OutgoingMessageImp.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_BattleOver.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_BlockDestroyed.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_CreateMissile.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_BattleStart.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_FireballSkillUsed.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_GameFound.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_GameReadyRejected.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_LeaveQueueResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_JoinQueueResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_LoadingNextRoundStarted.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_LoadingStateStarted.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_LoginResult.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_MissileExplode.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_ObstacleHealthInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_PlayerExitGame.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_PlayerGoldInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_RoundOver.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_ShieldConsumed.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_ShieldSkillUsed.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_SkillUnlocked.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_StartCountdown.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_TeleportSkillUsed.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_PlayerWalk.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_PlayerHealthInfo.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_PlayerFly.cs" />
+    <Compile Include="Messages\OutgoingMessages\OM_ReturnToQueue.cs" />
+    <Compile Include="Missiles\FireballMissile.cs" />
+    <Compile Include="Missiles\Missile.cs" />
+    <Compile Include="Obstacles\Obstacle.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundStats.cs" />
+    <Compile Include="Skills\FireballSkill.cs" />
+    <Compile Include="Skills\ShieldSkill.cs" />
+    <Compile Include="Skills\Skill.cs" />
+    <Compile Include="Skills\TeleportSkill.cs" />
+    <Compile Include="TypeIdGenerator.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Utilities\Chronos.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Utilities\ArenaQueue.cs" />
+    <Compile Include="Utilities\ExtensionMethods.cs" />
+    <Compile Include="Utilities\RandomInstance.cs" />
+    <Compile Include="Utilities\Vector3.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
